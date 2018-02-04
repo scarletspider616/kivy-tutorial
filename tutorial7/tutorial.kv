@@ -1,0 +1,31 @@
+<ScatterTextWidget>:
+	orientation: 'vertical'
+	TextInput:
+		id: my_textinput
+		font_size: 75
+		size_hint_y: None 
+		height: 95
+		text: 'default'
+		on_text: root.change_label_colour()
+	FloatLayout:
+		Scatter:
+			Label:
+				id: my_label
+				text: my_textinput.text
+				on_text: root.change_input_to_upper()
+				color: root.text_colour
+				font_size: 75
+	BoxLayout:
+		orientation: 'horizontal'
+		size_hint_y: None
+		height: 75
+		Label:
+			id: label1
+			text: my_textinput.text[:3][::-1]
+			font_size: 50
+			color: root.text_colour
+		Label:
+			id: label2
+			text: my_textinput.text[-3:][::-1]
+			font_size: 50
+			color: root.text_colour
